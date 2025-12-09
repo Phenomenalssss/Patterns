@@ -7,6 +7,7 @@ namespace GameCharacterCommand.Commands
     public class AttackCommand : ICommand
     {
         private PlayerReceiver _player;
+
         public AttackCommand(PlayerReceiver player)
         {
             _player = player;
@@ -16,7 +17,7 @@ namespace GameCharacterCommand.Commands
         {
             _player.Attack();
         }
-
+         
         public void Undo()
         {
             Console.WriteLine("Отмена атаки...");
