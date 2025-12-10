@@ -1,6 +1,4 @@
-﻿using GameMediators;
-using Players;
-using IMediators;
+﻿using HomeMediator;
 
 namespace ProgramMediator
 {
@@ -8,36 +6,16 @@ namespace ProgramMediator
     {
         public static void Main(string[] args)
         {
-            Console.Write("Введите никнейм первого игрока = ");
-            string name = Console.ReadLine();
-            while (name.IsWhiteSpace() || name.Length == 0)
-            {
-                Console.Write("Ошибка. Введите никнейм первого игрока = ");
-                name = Console.ReadLine();
-            }
-            Player player = new Player(name);
-            Console.Write("Введите никнейм второго игрока = ");
-            name = Console.ReadLine();
-            while (name.IsWhiteSpace() || name.Length == 0)
-            {
-                Console.Write("Ошибка. Введите никнейм второго игрока = ");
-                name = Console.ReadLine();
-            }
-            Player enemy = new Player(name);
+            Alarm alarm = new Alarm();
+            Calendar calendar = new Calendar();
+            CoffeeMachine coffeeMachine = new CoffeeMachine();
+            SmartBlinds smartBlinds = new SmartBlinds();
 
-            IMediator mediator = new GameMediator(player, enemy);
+            new DeviceMediator(alarm, coffeeMachine, calendar, smartBlinds);
 
-            player.Attack(player);
-            player.CastSpell(player);
-
-            player.Attack(enemy);
-            enemy.Attack(player);
-            player.CastSpell(enemy);
-            player.CastSpell(enemy);
-            player.CastSpell(enemy);
-            player.CastSpell(enemy);
-            player.CastSpell(enemy);
-            enemy.Attack(player);
+            calendar.CheckHoliday();
+            Console.WriteLine("-----");
+            alarm.Play();
         }
     }
 }
