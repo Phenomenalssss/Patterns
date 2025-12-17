@@ -6,6 +6,8 @@ namespace HomeMediator
 {
     public class Calendar : Device
     {
+        public Calendar(IMediator mediator) : base(mediator) { }
+
         public void CheckHoliday()
         {
             if (DateTime.Now.DayOfWeek == DayOfWeek.Sunday || DateTime.Now.DayOfWeek == DayOfWeek.Saturday)

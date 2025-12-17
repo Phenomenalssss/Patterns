@@ -26,21 +26,14 @@ namespace HomeMediator
 
         public void Notify(Device device, string action)
         {
-            if (device == _calendar && action == "AlarmOnTen")
+            if (device == _calendar)
             {
-                _alarm.Set(10);
+                _alarm.Receive(action);
             }
-            if (device == _calendar && action == "AlarmOnSix")
+            if (device == _alarm)
             {
-                _alarm.Set(6);
-            }
-            if (device == _alarm && action == "SmartBlindsOpen")
-            {
-                _smartBlinds.Open();
-            }
-            if (device == _alarm && action == "CoffeeMake")
-            {
-                _coffeeMachine.Make();
+                _smartBlinds.Receive(action);
+                _coffeeMachine.Receive(action);
             }
         }
     }

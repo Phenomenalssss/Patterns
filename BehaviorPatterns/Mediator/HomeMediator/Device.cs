@@ -9,7 +9,7 @@ namespace HomeMediator
     {
         protected IMediator _mediator;
 
-        public Device(IMediator mediator = null)
+        public Device(IMediator mediator)
         {
             _mediator = mediator;
         }
