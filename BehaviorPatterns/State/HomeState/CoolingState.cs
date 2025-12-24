@@ -6,19 +6,19 @@ namespace HomeState
 {
     public class CoolingState : State
     {
-        public override void Handle(ClimateSystem climateSystem)
+        public override State Handle(ClimateSystem climateSystem)
         {
             if (climateSystem.Temperature > 25)
             {
-                Info();
+                return this;
             }
             else if (climateSystem.Temperature < 20)
             {
-                climateSystem.SetState(new HeatingState());
+                return new HeatingState();
             }
             else
             {
-                climateSystem.SetState(new ComfortState());
+                return new ComfortState();
             }
         }
 

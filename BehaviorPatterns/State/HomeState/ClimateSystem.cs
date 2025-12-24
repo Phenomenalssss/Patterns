@@ -10,16 +10,20 @@
             _state = state;
         }
 
-        public void SetState(State state)
-        {
-            _state = state;
-            Console.WriteLine($"Состояние изменено на {state.GetType().Name}");
-            _state.Info();
-        }
-
         public void CheckTemperature()
         {
-            _state.Handle(this);
+            State newState = _state.Handle(this);
+
+            if (newState != _state)
+            {
+                _state = newState;
+                Console.WriteLine($"Состояние изменено на {_state.GetType().Name}");
+                _state.Info();
+            }
+            else
+            {
+                _state.Info();
+            }
         }
     }
 }

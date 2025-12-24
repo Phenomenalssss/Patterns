@@ -13,7 +13,7 @@ namespace HomeState
             _climateSystem = climateSystem;
         }
 
-        public abstract void Handle(ClimateSystem climateSystem);
+        public abstract State Handle(ClimateSystem climateSystem);
 
         public abstract void Info();
     }
