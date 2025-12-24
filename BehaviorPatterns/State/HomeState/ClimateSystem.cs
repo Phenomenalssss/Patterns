@@ -12,18 +12,9 @@
 
         public void CheckTemperature()
         {
-            State newState = _state.Handle(this);
-
-            if (newState != _state)
-            {
-                _state = newState;
-                Console.WriteLine($"Состояние изменено на {_state.GetType().Name}");
-                _state.Info();
-            }
-            else
-            {
-                _state.Info();
-            }
+            _state = _state.Handle(this);
+            Console.WriteLine($"Состояние изменено на {_state.GetType().Name}");
+            _state.Info();
         }
     }
 }
