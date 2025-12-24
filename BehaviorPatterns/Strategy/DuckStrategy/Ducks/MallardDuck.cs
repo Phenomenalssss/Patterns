@@ -8,11 +8,7 @@ namespace DuckStrategy.Ducks
 {
     public class MallardDuck : Duck
     {
-        public MallardDuck()
-        {
-            _flyable = new FlyWithWings();
-            _quackable = new Kquack();
-        }
+        public MallardDuck() : base(new FlyWithWings(), new Kquack()) { }
 
         public override void Display()
         {

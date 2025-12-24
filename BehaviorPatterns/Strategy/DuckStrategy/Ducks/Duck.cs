@@ -8,8 +8,14 @@ namespace DuckStrategy.Ducks
 {
     public abstract class Duck
     {
-        protected IFlyable _flyable;
-        protected IQuackable _quackable;
+        private IFlyable _flyable;
+        private IQuackable _quackable;
+
+        public Duck(IFlyable flyable, IQuackable quackable)
+        {
+            _flyable = flyable;
+            _quackable = quackable;
+        }
 
         public abstract void Display();
 

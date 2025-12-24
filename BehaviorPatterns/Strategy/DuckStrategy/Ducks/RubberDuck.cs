@@ -8,11 +8,7 @@ namespace DuckStrategy.Ducks
 {
     public class RubberDuck : Duck
     {
-        public RubberDuck()
-        {
-            _flyable = new FlyNoWay();
-            _quackable = new Squack();
-        }
+        public RubberDuck() : base(new FlyNoWay(), new Squack()) { }
 
         public override void Display()
         {

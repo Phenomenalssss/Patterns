@@ -8,11 +8,7 @@ namespace DuckStrategy.Ducks
 {
     public class DecoyDuck : Duck
     {
-        public DecoyDuck()
-        {
-            _flyable = new FlyNoWay();
-            _quackable = new MuteQuack();
-        }
+        public DecoyDuck() : base(new FlyNoWay(), new MuteQuack()) { }
 
         public override void Display()
         {
